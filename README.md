@@ -5,7 +5,7 @@
 
 ---
 
-## 🏃 Tentang Game
+## Tentang Game
 
 **LARIAN** adalah game web 3D endless runner yang memadukan gameplay dinamis (mirip Subway Surfers / Temple Run) dengan estetika dan atmosfer lokal Indonesia. Pemain mengontrol **Raka**, seorang pelari yang menjelajahi 5 distrik kota nusantara dengan rintangan jalanan yang unik.
 
@@ -18,7 +18,7 @@
 
 ---
 
-## 🎮 Cara Bermain & Kontrol
+## Cara Bermain & Kontrol
 
 ### Desktop (Keyboard)
 | Aksi | Tombol Keyboard |
@@ -37,24 +37,24 @@
 - **On-Screen HUD Buttons**: Tersedia tombol kontrol sentuh di layar.
 
 ### Item & Power-ups
-- ✦ **Koin**: Menambah pundi skor (+25 poin/koin).
-- 🧲 **Magnet**: Menarik seluruh koin terdekat selama 12 detik.
-- 🛡️ **Shield**: Menahan satu kali benturan rintangan fatal.
-- 🪙 **Koin 2×**: Menggandakan perolehan koin selama 12 detik.
+- **Koin**: Menambah pundi skor (+25 poin/koin).
+- **Magnet**: Menarik seluruh koin terdekat selama 12 detik.
+- **Shield**: Menahan satu kali benturan rintangan fatal.
+- **Koin 2x**: Menggandakan perolehan koin selama 12 detik.
 
 ---
 
-## 🛠️ Arsitektur & Teknologi
+## Arsitektur & Teknologi
 
 - **3D Engine**: [Three.js](https://threejs.org/) — Menggunakan geometri prosedural yang di-*bake* (tanpa beban unduhan file model eksternal 3D) dan *Instanced Meshes* untuk performa tinggi 60+ FPS.
-- **Audio Synthesizer**: Web Audio API murni — Musik perkusi elektronik Nusantara dan efek suara dinamis disintesis secara langsung secara *real-time* tanpa file `.mp3` besar.
+- **Audio Synthesizer**: Web Audio API murni — Musik perkusi elektronik Nusantara dan efek suara dinamis disintesis secara langsung secara *real-time* tanpa file audio besar.
 - **Framework & UI**: React 19, Next.js App Router, Tailwind CSS v4, Shadcn UI (Base UI).
 - **Runtime**: [Vinext](https://github.com/cloudflare/vinext) (Vite-based Next.js kompatibel dengan React Server Components) & Cloudflare Workers.
 - **Offline / Portable Bundle**: Skrip bundling khusus untuk menghasilkan satu file HTML tunggal mandiri (~0.97 MB) yang bisa dijalankan 100% offline.
 
 ---
 
-## 🚀 Menjalankan Project Secara Lokal
+## Menjalankan Project Secara Lokal
 
 ### Prasyarat
 - Node.js `>= 22.13.0`
@@ -95,6 +95,6 @@ Hasil build portable akan tersedia di `out/index.html`.
 
 ---
 
-## 📄 Lisensi
+## Lisensi
 
 Dibuat dengan semangat Nusantara. Proyek ini dilisensikan di bawah ketentuan lisensi open-source terlampir.
