@@ -1,0 +1,11 @@
+import { chromium } from 'playwright';
+import fs from 'node:fs/promises';
+const out='../work/qa';await fs.mkdir(out,{recursive:true});
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--enable-webgl','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-dev-shm-usage']});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+await page.goto('http://localhost:3000/',{waitUntil:'networkidle'});await page.getByRole('button',{name:'PLAY',exact:true}).waitFor({timeout:60000});await page.getByRole('button',{name:'PLAY',exact:true}).isEnabled();await page.waitForFunction(()=>document.querySelector('.world')?.larianDiagnostics);
+await page.screenshot({path:out+'/menu.png'});
+console.log('MENU',await page.locator('.world').evaluate(e=>e.larianDiagnostics()));
+await page.getByRole('button',{name:'PLAY',exact:true}).click();await page.waitForTimeout(250);await page.keyboard.press('ArrowLeft');await page.waitForTimeout(170);console.log('LEFT',await page.locator('.world').evaluate(e=>e.larianDiagnostics()));await page.keyboard.press('ArrowRight');await page.keyboard.press('Space');await page.waitForTimeout(180);console.log('JUMP',await page.locator('.world').evaluate(e=>e.larianDiagnostics()));await page.waitForTimeout(600);await page.keyboard.press('s');await page.waitForTimeout(100);console.log('SLIDE',await page.locator('.world').evaluate(e=>e.larianDiagnostics()));await page.screenshot({path:out+'/playing.png'});await page.getByRole('button',{name:'Pause',exact:true}).click();console.log('PAUSE',await page.locator('.world').evaluate(e=>e.larianDiagnostics()));await page.screenshot({path:out+'/pause.png'});
+await browser.close();await fs.writeFile(out+'/browser-errors.json',JSON.stringify(errors,null,2));console.log('ERRORS',errors);
